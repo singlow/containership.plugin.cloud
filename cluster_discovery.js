@@ -2,7 +2,6 @@
 
 const constants = require('./lib/constants');
 
-const _ = require('lodash');
 const request = require('request');
 
 module.exports = {
