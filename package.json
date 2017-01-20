@@ -1,51 +1,17 @@
 {
   "name": "containership.plugin.cloud",
-  "version": "0.14.0",
-  "description": "Offical plugin for interacting with ContainerShip Cloud",
-  "main": "application.js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "./node_modules/.bin/eslint ."
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "ContainerShip Developers <developers@containership.io>",
-  "license": "GPL-3.0",
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "@containership/containership.cloud.constants": "^1.1.9",
-    "async": "^0.9.0",
-    "aws-sdk": "^2.1.21",
-    "chalk": "^1.1.3",
-    "cli-table2": "^0.2.0",
-    "colors": "^1.1.2",
-    "containership.plugin": "^0.3.0",
-    "flat": "^2.0.1",
-    "github": "^2.1.0",
-    "glob": "^7.0.3",
+    "@containership/containership.cloud.constants": "^1.1.4",
+    "containership.plugin.v2": "file:../containership.plugin.v2",
     "lodash": "^4.17.4",
-    "myriad-kv-client": "^0.5.0",
-    "node-schedule": "^1.2.0",
-    "nomnom": "^1.8.1",
-    "prompt": "^1.0.0",
-    "read": "^1.0.7",
-    "request": "^2.54.0",
-    "semver": "^5.0.3",
-    "sprintf-js": "^1.0.3",
-    "tar": "^2.2.1",
-    "tar-fs": "^1.5.0",
-    "tesserarius": "^0.3.1"
-  },
-  "keywords": [
-    "containership",
-    "cloud"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/containership/containership.plugin.cloud.git"
-  },
-  "bugs": {
-    "url": "https://github.com/containership/containership.plugin.cloud/issues"
-  },
-  "homepage": "https://github.com/containership/containership.plugin.cloud",
-  "devDependencies": {
-    "eslint": "^3.3.1"
+    "request": "^2.79.0"
   }
 }
