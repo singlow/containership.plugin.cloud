@@ -1469,9 +1469,9 @@
       }
     },
     "tesserarius": {
-      "version": "0.2.1",
-      "from": "tesserarius@0.2.1",
-      "resolved": "https://registry.npmjs.org/tesserarius/-/tesserarius-0.2.1.tgz",
+      "version": "0.3.0",
+      "from": "tesserarius@0.3.0",
+      "resolved": "https://registry.npmjs.org/tesserarius/-/tesserarius-0.3.0.tgz",
       "dependencies": {
         "async": {
           "version": "1.5.2",
