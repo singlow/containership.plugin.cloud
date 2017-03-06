@@ -14,7 +14,23 @@ module.exports = new ContainershipPlugin({
     type: ['core', 'cli'],
     name: 'cloud',
 
+    runLeader: function(core) {
+        module.exports._initialize(core, leader.initialize);
+    },
+
+    runFollower: function(core) {
+        module.exports._initialize(core, follower.initialize);
+    },
+
     initialize: function(core) {
+        if(core.options.mode === 'leader') {
+            return module.exports.runLeader(core);
+        }
+
+        return module.exports.runFollower(core);
+    },
+
+    _initialize: function(core, initialize) {
         if(_.has(core, 'logger')) {
             core.logger.register('containership-cloud');
 
@@ -26,11 +42,7 @@ module.exports = new ContainershipPlugin({
                     core.cluster.legiond.actions.discover_peers(cidr);
                 }
 
-                if(core.options.mode === 'leader') {
-                    leader.initialize(core, config);
-                } else {
-                    follower.initialize(core, config);
-                }
+                initialize(core, config);
             });
         } else {
             let commands = _.map(cli, function(configuration, command) {
