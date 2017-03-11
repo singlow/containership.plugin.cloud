@@ -22,7 +22,7 @@ module.exports = {
             if(err) {
                 return callback(err);
             } else if(response.statusCode !== 200) {
-                return callback(new Error(response.body));
+                return callback(new Error(`ContainerShip Cloud API returned status code: ${response.statusCode}`));
             } else {
                 return callback(null, response.body);
             }
