@@ -10,6 +10,8 @@ const _ = require('lodash');
 const ContainershipPlugin = require('containership.plugin');
 const url = require('url');
 
+const APPLICATION_NAME = 'containership-cloud';
+
 module.exports = new ContainershipPlugin({
     type: ['core', 'cli'],
     name: 'cloud',
@@ -69,11 +71,11 @@ module.exports = new ContainershipPlugin({
     },
 
     runLeader: function(core) {
-        module.exports._initialize(core, leader.initialize);
+        module.exports._initialize(core, leader);
     },
 
     runFollower: function(core) {
-        module.exports._initialize(core, follower.initialize);
+        module.exports._initialize(core, follower);
     },
 
     initialize: function(core) {
@@ -84,28 +86,50 @@ module.exports = new ContainershipPlugin({
         } else if(core.options.mode === 'follower') {
             return module.exports.runFollower(core);
         } else if(core.logger) {
-            core.logger.register('containership-cloud');
-            core.loggers['containership-cloud'].log('error', 'Invalid configuration found when initializing containership cloud plugin!');
+            core.logger.register(APPLICATION_NAME);
+            core.loggers[APPLICATION_NAME].log('error', 'Invalid configuration found when initializing containership cloud plugin!');
         }
     },
 
-    _initialize: function(core, initialize) {
-        core.logger.register('containership-cloud');
+    _initialize: function(core, hostMode) {
+        core.logger.register(APPLICATION_NAME);
 
         let config = this.get_config('core');
 
         cluster_discovery.discover(core.cluster_id || core.options.cluster_id, config, function(err, cidr) {
             if(err) {
-                core.loggers['containership-cloud'].log('error', err.message);
+                core.loggers[APPLICATION_NAME].log('error', err.message);
             } else {
-                core.loggers['containership-cloud'].log('debug', `Discovering peers: ${cidr.join(', ')}`);
+                core.loggers[APPLICATION_NAME].log('debug', `Discovering peers: ${cidr.join(', ')}`);
 
                 core.cluster.legiond.options.network.cidr = cidr;
                 core.cluster.legiond.actions.discover_peers(cidr);
             }
 
-            initialize(core, config);
+            hostMode.initialize(core, config);
         });
+    },
+
+    stop: function(core) {
+        if (!core || !core.logger) {
+            // eslint-disable-next-line no-console
+            return console.warn('CLI does not support stop');
+        } else if(core && core.logger && core.options.mode === 'leader') {
+            return module.exports.stopLeader(core);
+        } else if(core && core.logger && core.options.mode === 'follower') {
+            return module.exports.stopFollower(core);
+        } else if(core.logger) {
+            core.loggers[APPLICATION_NAME].log('error', 'Invalid configuration found when stopping containership cloud plugin!');
+        }
+    },
+
+    stopLeader: function(core) {
+        core.loggers[APPLICATION_NAME].log('verbose', `${APPLICATION_NAME} is stopping leader.`);
+        leader.stop();
+    },
+
+    stopFollower: function(core) {
+        core.loggers[APPLICATION_NAME].log('verbose', `${APPLICATION_NAME} is stopping follower.`);
     },
 
     reload: function() {}
