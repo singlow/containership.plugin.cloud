@@ -1,6 +1,6 @@
 {
-  "name": "containership.plugin.cloud",
-  "version": "1.0.0",
+  "name": "containership.plugin.cloud.v2",
+  "version": "1.0.20",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "@containership/containership.cloud.constants": "^1.1.4",
-    "containership.plugin.v2": "file:../containership.plugin.v2",
+    "@jeremykross/containership.plugin": "*",
     "lodash": "^4.17.4",
     "request": "^2.79.0",
     "tar-fs": "^1.15.2"
