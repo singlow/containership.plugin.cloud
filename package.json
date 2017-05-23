@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "@containership/containership.cloud.constants": "^1.1.4",
-    "@jeremykross/containership.plugin": "*",
+    "containership.plugin": "git://github.com/containership/containership.plugin.git#v2",
     "lodash": "^4.17.4",
     "request": "^2.79.0",
     "tar-fs": "^1.15.2"
