@@ -1,6 +1,6 @@
 {
   "name": "containership.plugin.cloud.v2",
-  "version": "1.0.20",
+  "version": "1.0.41",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,9 +10,12 @@
   "license": "ISC",
   "dependencies": {
     "@containership/containership.cloud.constants": "^1.1.4",
-    "containership.plugin": "git://github.com/containership/containership.plugin.git#v2",
+    "@jeremykross/containership.plugin": "*",
+    "async": "^2.4.1",
     "lodash": "^4.17.4",
+    "node-schedule": "^1.2.3",
     "request": "^2.79.0",
-    "tar-fs": "^1.15.2"
+    "tar-fs": "^1.15.2",
+    "tesserarius": "^0.3.1"
   }
 }
