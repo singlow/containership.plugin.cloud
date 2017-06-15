@@ -25,7 +25,7 @@ module.exports = new ContainershipPlugin({
             return configuration;
         });
 
-        return {
+        return{
             commands: commands,
             middleware: [
                 function(options, fn) {
@@ -102,7 +102,7 @@ module.exports = new ContainershipPlugin({
         cluster_discovery.discover(core.cluster_id || core.options.cluster_id, config, function(err, cidr) {
             if(err) {
                 core.loggers[APPLICATION_NAME].log('error', err.message);
-            } else {
+            } else{
                 core.loggers[APPLICATION_NAME].log('debug', `Discovering peers: ${cidr.join(', ')}`);
 
                 core.cluster.legiond.options.network.cidr = cidr;
@@ -114,7 +114,7 @@ module.exports = new ContainershipPlugin({
     },
 
     stop: function(core) {
-        if (!core || !core.logger) {
+        if(!core || !core.logger) {
             // eslint-disable-next-line no-console
             return console.warn('CLI does not support stop');
         } else if(core && core.logger && core.options.mode === 'leader') {
