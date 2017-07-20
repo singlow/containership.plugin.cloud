@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "./node_modules/.bin/eslint ."
   },
   "author": "",
   "license": "ISC",
@@ -13,10 +14,24 @@
     "@containership/containership.plugin": "git://github.com/containership/containership.plugin#v2",
     "async": "^2.4.1",
     "aws-sdk": "^2.78.0",
+    "chalk": "^2.0.1",
+    "cli-table2": "^0.2.0",
+    "colors": "^1.1.2",
+    "flat": "https://registry.npmjs.org/flat/-/flat-2.0.1.tgz",
+    "github": "^9.2.0",
+    "glob": "^7.1.2",
     "lodash": "^4.17.4",
-    "node-schedule": "^1.2.3",
-    "request": "^2.79.0",
-    "tar-fs": "^1.15.2",
+    "mkdirp": "https://registry.npmjs.org/mkdirp/-/mkdirp-0.5.1.tgz",
+    "node-schedule": "https://registry.npmjs.org/node-schedule/-/node-schedule-1.2.3.tgz",
+    "prompt": "^1.0.0",
+    "request": "https://registry.npmjs.org/request/-/request-2.81.0.tgz",
+    "semver": "https://registry.npmjs.org/semver/-/semver-5.3.0.tgz",
+    "sprintf-js": "^1.1.1",
+    "tar": "^3.1.5",
+    "tar-fs": "https://registry.npmjs.org/tar-fs/-/tar-fs-1.15.3.tgz",
     "tesserarius": "^0.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.2.0"
   }
 }
