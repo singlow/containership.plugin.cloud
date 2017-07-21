@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@containership/containership.cloud.constants": "^1.1.4",
+    "@containership/containership.cloud.constants": "^1.1.9",
     "@containership/containership.plugin": "git://github.com/containership/containership.plugin#v2",
     "async": "^2.4.1",
     "aws-sdk": "^2.78.0",
