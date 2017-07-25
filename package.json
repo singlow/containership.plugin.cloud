@@ -1,6 +1,6 @@
 {
-  "name": "containership.plugin.cloud",
-  "version": "1.0.41",
+  "name": "@containership/containership.plugin.cloud",
+  "version": "2.0.0-beta-1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,29 +8,29 @@
     "lint": "./node_modules/.bin/eslint ."
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@containership/containership.cloud.constants": "^1.1.9",
-    "@containership/containership.plugin": "git://github.com/containership/containership.plugin#v2",
+    "@containership/containership.plugin": "^2.0.0-beta",
     "async": "^2.4.1",
-    "aws-sdk": "^2.78.0",
+    "aws-sdk": "^2.89.0",
     "chalk": "^2.0.1",
     "cli-table2": "^0.2.0",
     "colors": "^1.1.2",
-    "flat": "https://registry.npmjs.org/flat/-/flat-2.0.1.tgz",
+    "flat": "^3.0.0",
     "github": "^2.1.0",
     "glob": "^7.1.2",
     "lodash": "^4.17.4",
-    "mkdirp": "https://registry.npmjs.org/mkdirp/-/mkdirp-0.5.1.tgz",
-    "node-schedule": "https://registry.npmjs.org/node-schedule/-/node-schedule-1.2.3.tgz",
+    "mkdirp": "^0.5.1",
+    "node-schedule": "^1.2.3",
     "prompt": "^1.0.0",
-    "request": "https://registry.npmjs.org/request/-/request-2.81.0.tgz",
-    "semver": "https://registry.npmjs.org/semver/-/semver-5.3.0.tgz",
+    "request": "^2.81.0",
+    "semver": "^5.4.1",
     "sprintf-js": "^1.1.1",
-    "tar-fs": "https://registry.npmjs.org/tar-fs/-/tar-fs-1.15.3.tgz",
+    "tar-fs": "^1.15.3",
     "tesserarius": "^0.3.2"
   },
   "devDependencies": {
-    "eslint": "^4.2.0"
+    "eslint": "^4.3.0"
   }
 }
