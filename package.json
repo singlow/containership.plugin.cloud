@@ -1,6 +1,6 @@
 {
   "name": "@containership/containership.plugin.cloud",
-  "version": "2.0.0-beta-1",
+  "version": "2.0.0-beta-2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,7 @@
     "@containership/containership.cloud.constants": "^1.1.9",
     "@containership/containership.plugin": "^2.0.0-beta",
     "async": "^2.4.1",
-    "aws-sdk": "^2.89.0",
+    "aws-sdk": "^2.90.0",
     "chalk": "^2.0.1",
     "cli-table2": "^0.2.0",
     "colors": "^1.1.2",
