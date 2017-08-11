@@ -27,6 +27,7 @@ module.exports = {
         const nodes = _.keyBy(core.cluster.legiond.get_peers(), 'id');
         nodes[current_node.id] = current_node;
 
+        const errors = [];
         _.forEach(res.stash.body, function(application/*, application_name */) {
 
             const volumes = _.filter(application.volumes, (volume) => {
@@ -49,22 +50,35 @@ module.exports = {
 
                     if(nodes[container.host]) {
                         core.loggers['containership-cloud'].log('verbose', `Requesting volume backup for ${volume.host} in container ${container.id}`);
-                        const volume_id = module.exports.get_volume_id(volume.host);
-                        core.cluster.legiond.send({
-                            event: 'containership-cloud.backup',
-                            data: {
-                                path: volume.host,
-                                container_id: container.id,
-                                backup_id: req.query.CSC_BACKUP_ID,
-                                volume_id: volume_id
-                            }
-                        }, nodes[container.host]);
+                        if(volume.host) {
+                            const volume_id = module.exports.get_volume_id(volume.host);
+                            core.cluster.legiond.send({
+                                event: 'containership-cloud.backup',
+                                data: {
+                                    path: volume.host,
+                                    container_id: container.id,
+                                    backup_id: req.query.CSC_BACKUP_ID,
+                                    volume_id: volume_id
+                                }
+                            }, nodes[container.host]);
+                        } else{
+                            errors.push(new Error(`Volume host does not exist for ${container.id}. ${application.id} volumes will not be properly backed up.`));
+                        }
                     }
                 });
             });
         });
 
-        res.stash.code = 200;
+        if(_.isEmpty(errors)) {
+            res.stash.code = 200;
+            return next();
+        }
+
+        res.stash = {
+            code: 500,
+            body: errors
+        };
+
         return next();
     },
 
