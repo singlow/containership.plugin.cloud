@@ -4,8 +4,9 @@
   "description": "Containership cloud plugin",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint ."
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "lint": "echo \"Running lint tests...\n\" && ./node_modules/.bin/eslint .",
+    "dependency-check": "echo \"Running dependency checks...\n\" && ./node_modules/.bin/depcheck . --ignores depchecks,yargs"
   },
   "author": "Containership Developers <developers@containership.io>",
   "license": "GPL-3.0",
@@ -14,24 +15,16 @@
     "@containership/containership.plugin": "^2.0.0-beta-3",
     "async": "^2.4.1",
     "aws-sdk": "^2.90.0",
-    "chalk": "^2.0.1",
-    "cli-table2": "^0.2.0",
-    "colors": "^1.1.2",
-    "flat": "^3.0.0",
     "github": "^2.1.0",
-    "glob": "^7.1.2",
     "lodash": "^4.17.4",
-    "mkdirp": "^0.5.1",
     "node-schedule": "^1.2.3",
-    "prompt": "^1.0.0",
     "request": "^2.81.0",
-    "semver": "^5.4.1",
-    "sprintf-js": "^1.1.1",
-    "tar-fs": "^1.15.3",
     "tesserarius": "^0.3.2"
   },
   "devDependencies": {
-    "eslint": "^4.3.0"
+    "@containership/eslint-config-containership.eslint.backend": "^1.0.0",
+    "depcheck": "^0.6.7",
+    "eslint": "^4.5.0"
   },
   "repository": {
     "type": "git",
