@@ -1,6 +1,6 @@
 {
   "name": "containership.plugin.cloud",
-  "version": "0.14.0",
+  "version": "0.15.0",
   "dependencies": {
     "@containership/containership.cloud.constants": {
       "version": "1.1.9",
