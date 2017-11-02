@@ -1,6 +1,6 @@
 {
   "name": "@containership/containership.plugin.cloud",
-  "version": "2.0.0-beta-6",
+  "version": "2.0.0-beta-7",
   "description": "Containership cloud plugin",
   "main": "index.js",
   "scripts": {
